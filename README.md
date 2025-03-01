@@ -1,5 +1,6 @@
  Previsão de Temperatura Mensal com Séries Temporais
-📌 Introdução
+ 
+# Introdução
 
 1.1 Motivação
 Nos últimos anos, o avanço tecnológico e a crescente disponibilidade de dados ambientais transformaram a forma como compreendemos e interagimos com o clima e os recursos naturais. No contexto agrícola, a previsão de variáveis climáticas, especialmente a temperatura, é essencial para o manejo adequado das plantações, permitindo um planejamento estratégico que otimiza recursos e reduz riscos decorrentes das variações térmicas.
