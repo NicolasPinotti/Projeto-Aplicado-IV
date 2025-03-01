@@ -22,8 +22,6 @@ Além de validar a eficácia das metodologias estatísticas utilizadas, este tra
 Temperatura_mensal_F1.csv
 Temperatura_mensal_F2.csv
 Temperatura_mensal_F3.csv
-📑 seriestemporais3.ipynb → Notebook principal contendo a análise das séries temporais.
-📄 requirements.txt → Lista de bibliotecas necessárias para executar o notebook.
 
 Fonte dos Dados
 Os dados utilizados neste estudo estão disponíveis no repositório: Mirlaa/s-ries-temporais-statsmodels.
