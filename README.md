@@ -2,32 +2,38 @@
  
 ## Introdução
 
-1.1 Motivação
-Nos últimos anos, o avanço tecnológico e a crescente disponibilidade de dados ambientais transformaram a forma como compreendemos e interagimos com o clima e os recursos naturais. No contexto agrícola, a previsão de variáveis climáticas, especialmente a temperatura, é essencial para o manejo adequado das plantações, permitindo um planejamento estratégico que otimiza recursos e reduz riscos decorrentes das variações térmicas.
 
-Este estudo integra um referencial teórico sólido com práticas analíticas inovadoras, promovendo uma abordagem sustentável e resiliente para a agricultura. A previsão das temperaturas mensais visa validar a eficácia das técnicas de séries temporais e demonstrar sua aplicabilidade prática, contribuindo para a adoção de estratégias mais eficientes de gestão térmica no setor agrícola.
+1.1 Introdução 
 
-1.2 Justificativa
-A precisão na previsão de temperaturas, baseada em dados históricos robustos, é uma ferramenta essencial para o desenvolvimento científico e tecnológico. A aplicação de técnicas de séries temporais permite a criação de modelos preditivos que geram insights valiosos para inovação e planejamento estratégico em diversos setores.
+Nos últimos anos, o avanço tecnológico e a crescente disponibilidade de dados ambientais têm transformado a forma como compreendemos a relação entre as condições climáticas e a saúde pública. A previsão de variáveis climáticas, em especial a temperatura, é fundamental para antecipar e mitigar os impactos na saúde, como o aumento de doenças respiratórias durante ondas de frio ou a proliferação de doenças transmitidas por vetores em períodos de calor intenso. 
 
-Com o avanço dos sensores e sistemas de monitoramento, tornou-se possível coletar um grande volume de dados ambientais. O presente estudo utiliza uma base de dados contendo registros mensais de temperatura desde 1963, permitindo a construção de modelos que estimam com precisão valores futuros. O objetivo é oferecer suporte informacional para decisões estratégicas no manejo de culturas e em outros setores que dependem de previsões climáticas confiáveis.
+A relevância desta pesquisa está na integração de um referencial teórico sólido com práticas analíticas inovadoras que, em conjunto, possibilitam a criação de ferramentas para a prevenção de agravos à saúde. Assim, ao prever as temperaturas mensais, pretende-se validar a eficácia de técnicas de séries temporais e demonstrar sua aplicação em contextos reais, contribuindo para o desenvolvimento de políticas públicas voltadas à saúde e ao bem-estar da população. 
 
-1.3 Objetivo
-Inspirado por pesquisas de referência na área, este estudo busca desenvolver um modelo de previsão de temperatura que vá além do contexto agrícola tradicional, abrangendo aplicações em ambientes industriais e urbanos. A proposta contribui para o avanço da ciência e tecnologia, apoiando o desenvolvimento sustentável e a adoção de soluções inteligentes nos processos decisórios.
+1.2 Motivações e Justificativa 
 
-1.4 Base de dados
-Além de validar a eficácia das metodologias estatísticas utilizadas, este trabalho explora o potencial das técnicas de séries temporais para aprimorar a gestão de recursos e a adaptação a cenários de mudanças climáticas locais.
+A previsão precisa de temperaturas é essencial para a saúde pública, permitindo antever períodos de risco elevado e implementar estratégias preventivas. Estudos demonstram que variações térmicas impactam diretamente a incidência de doenças respiratórias, cardiovasculares e infecciosas. A utilização de modelos preditivos baseados em séries temporais oferece uma abordagem robusta para monitoramento e resposta a esses desafios. 
 
-📂 Estrutura do Repositório
-📁 Dados/ → Conjunto de dados de temperatura mensal:
-Temperatura_mensal_F1.csv
-Temperatura_mensal_F2.csv
-Temperatura_mensal_F3.csv
+Com a intensificação do uso de sensores climáticos e a disponibilidade de bases históricas detalhadas, torna-se viável aplicar essas técnicas para antecipar condições ambientais que afetam a saúde. Este projeto utiliza uma base de dados com registros mensais de temperatura desde 1963, permitindo a identificação de padrões sazonais e tendências que informam decisões em saúde pública. 
 
-1.5 Referencias teóricas
-JORNAL USP. Mudanças climáticas afetam a agricultura e prejudicam a produção de alimentos. 2023. Disponível em: https://jornal.usp.br/campus-ribeirao-preto/mudancas-climaticas-afetam-a-agricultura-e-prejudicam-a-producao-de-alimentos/.
+1.3 Objetivo 
 
-THE NATURE CONSERVANCY (TNC). Impactos das mudanças climáticas na produção agrícola. 2022. Disponível em: https://www.tnc.org.br/conecte-se/comunicacao/artigos-e-estudos/impactos-mudancas-climaticas-producao-agricola/.
+Este estudo tem como objetivo desenvolver e validar um modelo preditivo de temperaturas mensais utilizando técnicas de séries temporais, com ênfase em sua aplicação na saúde pública. A proposta é contribuir para a compreensão dos impactos climáticos na saúde, fornecendo informações para a formulação de políticas públicas mais eficazes e para a implementação de medidas preventivas em regiões vulneráveis. 
+
+Ademais, busca-se validar a eficácia das metodologias estatísticas aplicadas, explorando suas potencialidades na previsão de condições climáticas que afetam a saúde coletiva. 
+
+1.4 Descrição da Base de Dados 
+
+A base de dados utilizada neste projeto contém registros mensais de temperatura, com dois atributos principais: a data, correspondente ao primeiro dia de cada mês, e a temperatura média registrada. Os dados abrangem o período de janeiro de 1963 até o presente e estão organizados em formato tabular, facilitando a aplicação de métodos estatísticos. 
+
+A fonte dos dados é o Instituto Nacional de Meteorologia (INMET), uma instituição oficial de monitoramento climático do Brasil. O conjunto de dados inclui aproximadamente 744 observações, cobrindo um período de mais de 60 anos de medições mensais. Cada registro é composto por dois atributos: (i) a data em formato 'AAAA-MM-DD' e (ii) a temperatura média em graus Celsius, representada como um valor numérico de ponto flutuante.
+
+Essa base histórica é fundamental para validar os modelos preditivos, permitindo a análise de padrões climáticos e sua correlação com indicadores de saúde.
+
+2. Referencial Teórico 
+
+WORLD HEALTH ORGANIZATION (WHO). Climate change and health. 2023. Disponível em: https://www.who.int/news-room/fact-sheets/detail/climate-change-and-health. 
+
+MINISTÉRIO DA SAÚDE. Impactos das mudanças climáticas na saúde pública. 2022. Disponível em: https://www.gov.br/saude/pt-br/assuntos/saude-ambiental/mudancas-climaticas-e-saude
 
 📄 Licença
 Este projeto é disponibilizado sob a licença MIT. Sinta-se à vontade para contribuir e explorar!
