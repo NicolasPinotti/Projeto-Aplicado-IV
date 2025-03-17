@@ -8,7 +8,7 @@ Aluno3 = 'Aluno 3, 987654321' #@param {type:"string"}
 Aluno4 = 'Aluno 4, 456789123' #@param {type:"string"}
 Aluno5 = 'Aluno 5, 654987321' #@param {type:"string"}
 
-Introdução
+##Introdução
 
 Nos últimos anos, o avanço tecnológico e a crescente disponibilidade de dados ambientais têm transformado a forma como compreendemos e interagimos com os fatores que impactam a saúde pública. Em especial, a previsão de variáveis climáticas, como a temperatura, tem um papel fundamental na mitigação de riscos relacionados a doenças sazonais e no apoio ao planejamento estratégico de políticas públicas de saúde.
 
@@ -20,13 +20,13 @@ A precisão na previsão de temperaturas, embasada em dados históricos robustos
 
 A intensificação do uso de sensores e sistemas de monitoramento tem gerado uma base robusta de informações, viabilizando a aplicação de técnicas de séries temporais para a análise e previsão de fenômenos naturais. Utilizando uma base de dados com registros históricos de temperatura, busca-se estimar com precisão os valores futuros, oferecendo suporte informacional para decisões estratégicas na gestão de recursos de saúde pública.
 
-Objetivo
+##Objetivo
 
 Este estudo propõe a criação de um modelo preditivo capaz de estimar temperaturas mensais futuras, com foco em sua aplicação na área de saúde pública. O objetivo é validar a eficácia das técnicas de séries temporais, demonstrando sua utilidade para antecipar condições climáticas que podem impactar diretamente a saúde da população.
 
 Ao demonstrar a aplicabilidade das técnicas analíticas, o presente trabalho busca não apenas validar a eficácia das metodologias estatísticas empregadas, mas também colaborar para o desenvolvimento de soluções que aprimorem a gestão de recursos em saúde e a adaptação a cenários de mudanças climáticas.
 
-Descrição da Base de Dados
+##Descrição da Base de Dados
 
 A base de dados utilizada neste projeto contém registros mensais de temperatura, com dois atributos principais: a data, correspondente ao primeiro dia de cada mês, e a temperatura média registrada. Os dados abrangem o período de janeiro de 1963 até o presente e estão organizados em formato tabular, facilitando a aplicação de métodos estatísticos.
 
@@ -34,7 +34,7 @@ A fonte dos dados é o Instituto Nacional de Meteorologia (INMET), uma institui�
 
 Essa base histórica é fundamental para validar os modelos preditivos, permitindo a análise de padrões climáticos e sua correlação com indicadores de saúde pública. Os dados estão disponíveis no repositório GitHub: https://github.com/Mirlaa/s-ries-temporais-statsmodels.
 
-Referências
+##Referências
 
 THE NATURE CONSERVANCY (TNC). Impactos das mudanças climáticas na saúde pública. 2022. Disponível em: https://www.tnc.org.br/conecte-se/comunicacao/artigos-e-estudos/impactos-mudancas-climaticas-saude-publica/.
 
