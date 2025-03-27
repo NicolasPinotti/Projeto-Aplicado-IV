@@ -107,6 +107,67 @@ Fluxo do Pipeline:
 
 Coleta de Dados → Pré-processamento → Análise Exploratória → Modelagem → Validação e Interpretação
 
+ CRONOGRAMA
+
+Atividade
+
+Descrição
+
+Prazo
+
+Definição do Projeto e Equipe
+
+Definir escopo do projeto e equipe de trabalho
+
+28/02/2025
+
+Levantamento de Dados
+
+Coleta e organização dos dados históricos de temperatura
+
+10/03/2025
+
+Análise Exploratória (EDA)
+
+Identificação de padrões, sazonalidade e tendências
+
+20/03/2025
+
+Referencial Teórico e Cronograma
+
+Entrega do referencial teórico e planejamento do projeto
+
+28/03/2025
+
+Desenvolvimento do Pipeline
+
+Implementação inicial do pipeline de dados e pré-processamento
+
+10/04/2025
+
+Implementação Parcial
+
+Desenvolvimento inicial dos modelos preditivos
+
+25/04/2025
+
+Ajustes e Validação
+
+Comparação de modelos e avaliação de métricas de desempenho
+
+10/05/2025
+
+Documentação Final
+
+Redação do relatório técnico e conclusões
+
+25/05/2025
+
+Implementação e Entrega Final
+
+Finalização do projeto e entrega do relatório
+
+30/05/2025
 
 
 
