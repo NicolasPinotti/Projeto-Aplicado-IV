@@ -45,17 +45,17 @@ WORLD HEALTH ORGANIZATION (WHO). Climate change and health. 2023. Disponível em
 
 MINISTÉRIO DA SAÚDE. Impactos das mudanças climáticas na saúde pública. 2022. Disponível em: https://www.gov.br/saude/pt-br/assuntos/saude-ambiental/mudancas-climaticas-e-saude
 
-##REFERENCIAL TEÓRICO
+## REFERENCIAL TEÓRICO
 
 A previsão de variáveis climáticas, como a temperatura, é um tema bastante estudado devido à sua importância em áreas como a saúde pública. Modelos de séries temporais são ferramentas eficazes para identificar padrões e fazer previsões com base em dados do passado.
 
-##Trabalhos Correlacionados:
+## Trabalhos Correlacionados:
 
 Estudos recentes mostram que modelos como ARIMA (AutoRegressive Integrated Moving Average) e suas variações, como o SARIMA (Seasonal ARIMA), são amplamente usados para prever séries temporais sazonais (HYNDMAN; ATHANASOPOULOS, 2018). Outra abordagem bastante utilizada é o modelo Prophet, desenvolvido pelo Facebook, que se destaca por lidar bem com tendências e sazonalidades de longo prazo de forma simples e eficiente (TAYLOR; LETHAM, 2018).
 
 Enquanto modelos estatísticos, como o ARIMA, são eficazes para padrões lineares, técnicas mais avançadas como as redes neurais recorrentes (RNN) e o modelo LSTM (Long Short-Term Memory) conseguem capturar relações mais complexas e não-lineares (SCHMIDHUBER, 2015).
 
-##Alternativas de Solução:
+## Alternativas de Solução:
 
 ARIMA e SARIMA: São modelos tradicionais que funcionam bem para séries com padrões regulares, mas exigem que os dados sejam ajustados para atender a certas condições.
 
@@ -85,7 +85,7 @@ TAYLOR, S. J.; LETHAM, B. Forecasting at scale. PeerJ Preprints, 2018.
 
 SCHMIDHUBER, J. Deep Learning in Neural Networks: An Overview. Neural Networks, 2015.
 
-##PIPELINE DA SOLUÇÃO
+## PIPELINE DA SOLUÇÃO
 
 O pipeline da solução proposto está dividido em cinco etapas principais:
 
