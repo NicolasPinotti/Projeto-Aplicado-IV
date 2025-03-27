@@ -45,5 +45,72 @@ WORLD HEALTH ORGANIZATION (WHO). Climate change and health. 2023. Disponível em
 
 MINISTÉRIO DA SAÚDE. Impactos das mudanças climáticas na saúde pública. 2022. Disponível em: https://www.gov.br/saude/pt-br/assuntos/saude-ambiental/mudancas-climaticas-e-saude
 
+##REFERENCIAL TEÓRICO
+
+A previsão de variáveis climáticas, como a temperatura, é um tema bastante estudado devido à sua importância em áreas como a saúde pública. Modelos de séries temporais são ferramentas eficazes para identificar padrões e fazer previsões com base em dados do passado.
+
+##Trabalhos Correlacionados:
+
+Estudos recentes mostram que modelos como ARIMA (AutoRegressive Integrated Moving Average) e suas variações, como o SARIMA (Seasonal ARIMA), são amplamente usados para prever séries temporais sazonais (HYNDMAN; ATHANASOPOULOS, 2018). Outra abordagem bastante utilizada é o modelo Prophet, desenvolvido pelo Facebook, que se destaca por lidar bem com tendências e sazonalidades de longo prazo de forma simples e eficiente (TAYLOR; LETHAM, 2018).
+
+Enquanto modelos estatísticos, como o ARIMA, são eficazes para padrões lineares, técnicas mais avançadas como as redes neurais recorrentes (RNN) e o modelo LSTM (Long Short-Term Memory) conseguem capturar relações mais complexas e não-lineares (SCHMIDHUBER, 2015).
+
+##Alternativas de Solução:
+
+ARIMA e SARIMA: São modelos tradicionais que funcionam bem para séries com padrões regulares, mas exigem que os dados sejam ajustados para atender a certas condições.
+
+Prophet: Mais fácil de ajustar e capaz de capturar sazonalidades e tendências de longo prazo, com menos esforço de configuração.
+
+LSTM: Mais avançado, consegue lidar com padrões complexos, mas exige mais poder computacional e maior tempo de treinamento.
+
+Neste projeto, serão utilizados os modelos ARIMA e Prophet, pois oferecem um equilíbrio entre precisão, facilidade de implementação e interpretação dos resultados.
+
+Conceitos Principais:
+
+Séries Temporais: Sequência de dados coletados em intervalos de tempo regulares.
+
+Tendência: Padrão de crescimento ou queda ao longo do tempo.
+
+Sazonalidade: Repetição de padrões em períodos regulares (mensal, anual, etc.).
+
+Modelos ARIMA e SARIMA: Utilizam relações entre os valores passados para prever valores futuros.
+
+Prophet: Modelo flexível que combina tendência e sazonalidade de forma intuitiva.
+
+Referências:
+
+HYNDMAN, R. J.; ATHANASOPOULOS, G. Forecasting: Principles and Practice. OTexts, 2018.
+
+TAYLOR, S. J.; LETHAM, B. Forecasting at scale. PeerJ Preprints, 2018.
+
+SCHMIDHUBER, J. Deep Learning in Neural Networks: An Overview. Neural Networks, 2015.
+
+##PIPELINE DA SOLUÇÃO
+
+O pipeline da solução proposto está dividido em cinco etapas principais:
+
+Coleta de Dados: Os dados são obtidos do portal do Instituto Nacional de Meteorologia (INMET) e incluem registros mensais de temperatura desde 1963.
+
+Pré-processamento: Limpeza dos dados, padronização das datas e tratamento de valores ausentes ou inconsistentes.
+
+Análise Exploratória (EDA): Exploração dos dados para identificar tendências, sazonalidades e padrões relevantes.
+
+Modelagem Preditiva:
+
+Ajuste dos modelos ARIMA e Prophet para fazer previsões de temperatura.
+
+Avaliação do desempenho dos modelos com métricas como RMSE (Erro Quadrático Médio) e MAE (Erro Médio Absoluto).
+
+Validação e Interpretação dos Resultados: Comparação da precisão dos modelos e análise dos impactos das previsões na saúde pública, com recomendações para ações futuras.
+
+Fluxo do Pipeline:
+
+Coleta de Dados → Pré-processamento → Análise Exploratória → Modelagem → Validação e Interpretação
+
+
+
+
 📄 Licença
 Este projeto é disponibilizado sob a licença MIT. Sinta-se à vontade para contribuir e explorar!
+
+
