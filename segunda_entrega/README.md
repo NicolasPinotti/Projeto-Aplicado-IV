@@ -6,67 +6,66 @@
 **LUCIANO GUIMARAES COSTA** - 10289655  
 **NICOLAS PINOTTI** - 10408010
 
-## 📚 Referencial Teórico
+# 📖 Referencial Teórico  
 
-A previsão de variáveis climáticas, como a temperatura, é um tema bastante estudado devido à sua importância em áreas como a saúde pública. Modelos de séries temporais são ferramentas eficazes para identificar padrões e fazer previsões com base em dados do passado.
+A previsão de variáveis climáticas, como a temperatura, tem sido amplamente estudada devido à sua relevância para áreas como a saúde pública e a gestão de riscos ambientais. Modelos de séries temporais são ferramentas essenciais para identificar padrões históricos e realizar previsões confiáveis.  
 
-### 🔍 Trabalhos Correlacionados:
+## 🔍 Trabalhos Correlacionados  
 
-Estudos recentes mostram que modelos como ARIMA (AutoRegressive Integrated Moving Average) e suas variações, como o SARIMA (Seasonal ARIMA), são amplamente usados para prever séries temporais sazonais (HYNDMAN; ATHANASOPOULOS, 2018). Outra abordagem bastante utilizada é o modelo Prophet, desenvolvido pelo Facebook, que se destaca por lidar bem com tendências e sazonalidades de longo prazo de forma simples e eficiente (TAYLOR; LETHAM, 2018).
+Estudos demonstram que modelos estatísticos como **ARIMA (AutoRegressive Integrated Moving Average)** e **SARIMA (Seasonal ARIMA)** são eficazes na previsão de séries temporais com padrões sazonais bem definidos (**HYNDMAN; ATHANASOPOULOS, 2018**). No entanto, tais modelos podem apresentar limitações ao lidar com séries que possuem múltiplas sazonalidades ou tendências complexas.  
 
-Enquanto modelos estatísticos, como o ARIMA, são eficazes para padrões lineares, técnicas mais avançadas como as redes neurais recorrentes (RNN) e o modelo LSTM (Long Short-Term Memory) conseguem capturar relações mais complexas e não-lineares (SCHMIDHUBER, 2015).
+Outra abordagem amplamente utilizada é o modelo **Prophet**, desenvolvido pelo Facebook, que se destaca por sua facilidade de ajuste e robustez ao lidar com tendências e sazonalidades de longo prazo (**TAYLOR; LETHAM, 2018**). O Prophet permite a inclusão de variáveis externas e pode ser mais flexível em determinados cenários.  
 
-### 🛠️ Alternativas de Solução:
+Além dos modelos estatísticos, técnicas baseadas em aprendizado profundo, como **Redes Neurais Recorrentes (RNN)** e **Long Short-Term Memory (LSTM)**, apresentam bons resultados para séries temporais não lineares e de alta complexidade. Estudos sugerem que esses modelos podem capturar relações temporais complexas com maior precisão (**SCHMIDHUBER, 2015**), embora demandem mais recursos computacionais.  
 
-- **ARIMA e SARIMA**: São modelos tradicionais que funcionam bem para séries com padrões regulares, mas exigem que os dados sejam ajustados para atender a certas condições.
-- **Prophet**: Mais fácil de ajustar e capaz de capturar sazonalidades e tendências de longo prazo, com menos esforço de configuração.
-- **LSTM**: Mais avançado, consegue lidar com padrões complexos, mas exige mais poder computacional e maior tempo de treinamento.
+## 🛠️ Alternativas de Solução  
 
-Neste projeto, serão utilizados os modelos ARIMA e Prophet, pois oferecem um equilíbrio entre precisão, facilidade de implementação e interpretação dos resultados.
+| Modelo | Vantagens | Desvantagens |
+|--------|----------|-------------|
+| **ARIMA/SARIMA** | Eficiente para padrões sazonais e dados estacionários | Exige pré-processamento rigoroso e pode não lidar bem com mudanças abruptas |
+| **Prophet** | Fácil ajuste e bom desempenho para sazonalidade e tendência | Menos eficiente para séries altamente voláteis |
+| **LSTM** | Capaz de modelar padrões não lineares e múltiplas sazonalidades | Alto custo computacional e necessidade de grande volume de dados |
 
-### 🔑 Conceitos Principais:
+Neste projeto, os modelos **ARIMA e Prophet** foram selecionados por oferecerem um equilíbrio entre interpretabilidade, facilidade de implementação e precisão nas previsões.  
 
-- **Séries Temporais**: Sequência de dados coletados em intervalos de tempo regulares.
-- **Tendência**: Padrão de crescimento ou queda ao longo do tempo.
-- **Sazonalidade**: Repetição de padrões em períodos regulares (mensal, anual, etc.).
-- **Modelos ARIMA e SARIMA**: Utilizam relações entre os valores passados para prever valores futuros.
-- **Prophet**: Modelo flexível que combina tendência e sazonalidade de forma intuitiva.
+## 🔑 Conceitos Principais  
 
----
-
-## 🔄 Pipeline da Solução
-
-O pipeline da solução proposto está dividido em cinco etapas principais:
-
-1. **📥 Coleta de Dados**: Os dados são obtidos do portal do Instituto Nacional de Meteorologia (INMET) e incluem registros mensais de temperatura desde 1963.
-2. **🧹 Pré-processamento**: Limpeza dos dados, padronização das datas e tratamento de valores ausentes ou inconsistentes.
-3. **📊 Análise Exploratória (EDA)**: Exploração dos dados para identificar tendências, sazonalidades e padrões relevantes.
-4. **📈 Modelagem Preditiva**:
-   - Ajuste dos modelos ARIMA e Prophet para fazer previsões de temperatura.
-   - Avaliação do desempenho dos modelos com métricas como RMSE (Erro Quadrático Médio) e MAE (Erro Médio Absoluto).
-5. **✅ Validação e Interpretação dos Resultados**: Comparação da precisão dos modelos e análise dos impactos das previsões na saúde pública, com recomendações para ações futuras.
-
-**Fluxo do Pipeline:**
-
-📥 Coleta de Dados → 🧹 Pré-processamento → 📊 Análise Exploratória → 📈 Modelagem → ✅ Validação e Interpretação
+- **Séries Temporais:** Conjunto de observações organizadas cronologicamente.  
+- **Tendência:** Direção geral dos dados ao longo do tempo (crescente, decrescente, estável).  
+- **Sazonalidade:** Padrões recorrentes em períodos fixos (mensal, anual etc.).  
+- **Modelos ARIMA e SARIMA:** Baseados em relações estatísticas entre valores passados para prever valores futuros.  
+- **Prophet:** Modelo baseado em decomposição de tendência e sazonalidade, permitindo ajustes flexíveis.  
 
 ---
 
-## 📅 Cronograma do Projeto
+# 🔄 Pipeline da Solução  
 
-Este cronograma apresenta as principais etapas do desenvolvimento do projeto, desde a definição inicial até a entrega final. As datas foram definidas para garantir um fluxo eficiente de trabalho e documentação.
+O pipeline proposto para a previsão de temperaturas segue cinco etapas principais:  
 
-| 📌 Atividade                     | 📋 Descrição                                                       | ⏳ Prazo      |
-|---------------------------------|-----------------------------------------------------------------|------------|
-| 📝 Definição do Projeto e Equipe | Definir escopo do projeto e equipe de trabalho                 | 28/02/2025 |
-| 📊 Levantamento de Dados         | Coleta e organização dos dados históricos de temperatura       | 10/03/2025 |
-| 🔍 Análise Exploratória (EDA)    | Identificação de padrões, sazonalidade e tendências            | 20/03/2025 |
-| 📚 Referencial Teórico e Cronograma | Entrega do referencial teórico e planejamento do projeto  | 28/03/2025 |
-| 🔧 Desenvolvimento do Pipeline   | Implementação inicial do pipeline de dados e pré-processamento| 10/04/2025 |
-| ⚙️ Implementação Parcial         | Desenvolvimento inicial dos modelos preditivos                 | 25/04/2025 |
-| ✅ Ajustes e Validação           | Comparação de modelos e avaliação de métricas de desempenho   | 10/05/2025 |
-| 📝 Documentação Final           | Redação do relatório técnico e conclusões                     | 25/05/2025 |
-| 🚀 Implementação e Entrega Final | Finalização do projeto e entrega do relatório                 | 30/05/2025 |
+1️⃣ **Coleta de Dados:** Dados mensais de temperatura obtidos do portal do **Instituto Nacional de Meteorologia (INMET)** desde 1963.  
+2️⃣ **Pré-processamento:** Tratamento de valores ausentes, padronização das datas e normalização dos dados.  
+3️⃣ **Análise Exploratória (EDA):** Identificação de tendências e padrões sazonais para fundamentar a modelagem.  
+4️⃣ **Modelagem Preditiva:** Ajuste dos modelos **ARIMA e Prophet**, seguido de avaliação do desempenho com métricas como **RMSE (Root Mean Squared Error)** e **MAE (Mean Absolute Error)**.  
+5️⃣ **Validação e Interpretação dos Resultados:** Comparação dos modelos e análise da aplicabilidade das previsões no contexto da saúde pública.  
+
+Fluxo do pipeline:  
+📥 **Coleta de Dados** → 🧹 **Pré-processamento** → 📊 **Análise Exploratória** → 📈 **Modelagem** → ✅ **Validação e Interpretação**  
+
+---
+
+# 📅 Cronograma do Projeto  
+
+| 📌 **Atividade** | 📋 **Descrição** | ⏳ **Prazo** |
+|-----------------|----------------|-------------|
+| **Definição do Projeto e Equipe** | Escopo e organização da equipe | **28/02/2025** |
+| **Levantamento de Dados** | Coleta e organização dos dados históricos | **10/03/2025** |
+| **Análise Exploratória (EDA)** | Identificação de padrões e tendências | **20/03/2025** |
+| **Referencial Teórico e Cronograma** | Estruturação e entrega da segunda etapa | **28/03/2025** |
+| **Desenvolvimento do Pipeline** | Implementação inicial do pipeline | **10/04/2025** |
+| **Implementação Parcial** | Desenvolvimento dos modelos preditivos | **25/04/2025** |
+| **Ajustes e Validação** | Comparação de modelos e avaliação de métricas | **10/05/2025** |
+| **Documentação Final** | Redação do relatório técnico | **25/05/2025** |
+| **Implementação e Entrega Final** | Finalização e entrega do projeto | **30/05/2025** |
 
 ---
 
