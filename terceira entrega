@@ -1,0 +1,30 @@
+📊 Etapa 3 – Modelagem: Previsão de Temperatura e Saúde Pública
+Este relatório apresenta a implementação inicial dos modelos preditivos para a previsão da temperatura média mensal e sua correlação com internações hospitalares por doenças respiratórias no Brasil. A modelagem se baseia em séries temporais históricas do INMET e dados de internação do DATASUS.
+
+🔍 1. Análise Exploratória dos Dados
+1.1 Temperatura Média
+Gráfico da série temporal:
+
+
+Observações: A série apresenta um padrão cíclico claro, com sazonalidade anual bem definida e tendência levemente crescente em alguns períodos. Há variações visíveis entre os meses de inverno e verão.
+
+1.2 Internações Hospitalares por Doenças Respiratórias
+Gráfico da série temporal:
+
+
+Observações: A série de internações apresenta sazonalidade clara com picos no inverno (junho a agosto), coincidindo com as baixas temperaturas. Apresenta também flutuações interanuais.
+
+1.3 Séries Combinadas
+Gráfico combinado das duas séries temporalmente alinhadas:
+
+
+Observações: Inversão entre picos de internações e vales de temperatura, indicando possível relação inversa.
+
+📈 2. Correlação entre Temperatura e Internações
+Gráfico de dispersão (scatter plot):
+
+
+Correlação de Pearson: -0.54
+
+Interpretação: Correlação negativa moderada, indicando que temperaturas mais baixas tendem a estar associadas a maior número de internações.
+
