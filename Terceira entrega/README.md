@@ -1,110 +1,92 @@
-# 📊 Projeto Aplicado IV - Etapa 3  
-## Previsão de Temperatura Mensal e Impacto nas Internações por Doenças Respiratórias
+# Etapa 3 – Projeto Aplicado IV: Previsão de Temperaturas e Impactos em Saúde Pública
 
-### 🔎 Objetivo
-Analisar a relação entre a temperatura média mensal e o número de internações por doenças respiratórias no Brasil, com foco em prever padrões de internação a partir de séries temporais climáticas e de saúde pública.
+Este repositório contém os códigos, dados e análises da Etapa 3 do Projeto Aplicado IV – que visa modelar a relação entre a temperatura média mensal e internações por doenças respiratórias no Brasil, com foco em saúde pública.
 
 ---
 
-## 1. 🔍 Análise Exploratória (EDA)
+## 📊 Análise Exploratória dos Dados (EDA)
 
-Foram analisadas duas séries temporais:
-- **Temperatura Média Mensal (°C)**: Dados do INMET (Instituto Nacional de Meteorologia).
-- **Internações por Doenças Respiratórias**: Dados extraídos do DATASUS.
+### 🔄 Correlação Cruzada entre Temperatura e Internações
 
-### 1.1 Evolução Temporal
-
-- A série de **temperatura média** apresenta clara **sazonalidade anual**, com oscilações previsíveis entre meses mais frios e mais quentes.
-- A série de **internações** também revela um padrão sazonal, com **aumento significativo durante os meses mais frios**.
-
-![image](https://github.com/user-attachments/assets/3e71f6a4-e82c-4109-9a6c-c9ebd963c9b6)
+![image](https://github.com/user-attachments/assets/9a33cd8d-f5f0-4185-a6fe-944448271377)
 
 
-![image](https://github.com/user-attachments/assets/c8bbce5f-8ec7-4395-b297-c41cb60fec98)
 
+A Função de Correlação Cruzada (CCF) entre a temperatura média mensal e as internações por doenças respiratórias revelou correlações estatisticamente significativas em defasagens de 5 a 7 meses e novamente entre 15 e 18 meses. Esse padrão indica uma possível relação de antecipação sazonal, onde períodos de menor temperatura podem preceder aumentos nas internações com alguns meses de diferença.
 
 ---
 
-## 2. 📈 Correlação entre Temperatura e Internações
+### 📦 Boxplot: Sazonalidade das Internações
 
-### 2.1 Correlação de Pearson
-
-| Correlação | Valor |
-|-----------|-------|
-| Temperatura Média × Internações | -0.572 |
-
-![image](https://github.com/user-attachments/assets/e5264226-8ac0-4605-bd60-f8c74d8de72a)
+![image](https://github.com/user-attachments/assets/34724dc7-aad1-4744-bdd5-508cfa52e988)
 
 
-📌 **Interpretação:**  
-A correlação negativa sugere que, em geral, **quanto mais baixa a temperatura, maior o número de internações**. Isso é consistente com o impacto do frio sobre doenças respiratórias.
+O boxplot da sazonalidade das internações evidencia uma concentração de valores mais altos nos meses entre abril e julho, compatível com o aumento de doenças respiratórias durante os períodos mais frios.
 
 ---
 
-## 3. ⚙️ Transformações e Sazonalidade
+### 🌡️ Boxplot: Temperatura Média Mensal
 
-### 3.1 Sazonalidade
-
-Foram identificadas **componentes sazonais fortes** em ambas as séries com decomposição aditiva.
-
-![image](https://github.com/user-attachments/assets/e9e8972c-bd03-4389-9a56-46db7f306600)
+![image](https://github.com/user-attachments/assets/010f71df-a624-4734-87a9-1d8415237d35)
 
 
-![image](https://github.com/user-attachments/assets/cc8d41d2-d3a2-4930-8dc0-fb87a7f52103)
-
-
-### 3.2 Transformações
-
-- Aplicada **diferença de primeira ordem** para remover tendência.
-- Aplicada **média móvel de 12 meses** para suavizar a sazonalidade.
+A distribuição mensal das temperaturas confirma a sazonalidade esperada da região Sudeste, com picos de temperatura entre dezembro e março, e os menores valores entre junho e agosto.
 
 ---
 
-## 4. 🧪 Teste de Estacionariedade (ADF)
+### 🕓 Séries Temporais: Temperatura vs Internações
 
-Aplicado o Teste Dickey-Fuller Aumentado (ADF):
+![image](https://github.com/user-attachments/assets/ed26dd7b-4386-4535-815f-e6226990981a)
 
-| Série               | Estatística ADF | Valor-p | Conclusão             |
-|---------------------|------------------|---------|------------------------|
-| Temperatura Média   | -2.4489          | 0.1284  | Não estacionária       |
-| Internações         | -5.7593          | 0.0000  | Estacionária           |
 
-📌 **Interpretação:**  
-A série de **Internações** já é estacionária, enquanto a **Temperatura Média** necessita de diferenciação antes da modelagem.
+A análise conjunta das séries temporais entre 2010 e 2023 demonstra que os picos de internações geralmente coincidem com os períodos de temperatura média mais baixa, sugerindo uma relação inversa entre as variáveis.
 
 ---
 
-## 5. 🔄 Correlação Cruzada (CCF)
+### 📈 Série Temporal: Internações por Doenças Respiratórias
 
-Analisada a correlação entre a Temperatura Média com lags (defasagens) e as Internações:
-
-![image](https://github.com/user-attachments/assets/345aaba1-ea3d-4df2-955b-24ebe8b39693)
+![image](https://github.com/user-attachments/assets/ee59df52-7561-4ce1-be2b-c5d66fdbe84e)
 
 
-### Resultados
-
-- **Lag 0**: Correlação = -0.5723
-- **Maior correlação (absoluta)**:  
-  Lag 1 (Temperatura com 1 mês de defasagem) → Correlação = -0.6037
-
-📌 **Interpretação:**  
-A temperatura com **1 mês de antecedência** tem correlação mais forte com o número de internações. Isso sugere que **quedas de temperatura afetam as internações no mês seguinte**, o que pode ser relevante para sistemas de saúde se anteciparem a picos de internações.
+A série de internações revela padrões cíclicos ao longo dos anos, com destaque para o pico atípico de 2020-2021, coerente com a pandemia de COVID-19.
 
 ---
 
-## ✅ Conclusões Parciais da Etapa 3
+## 📁 Estrutura do Projeto
 
-- Existe **relação estatisticamente significativa** entre temperatura e internações por doenças respiratórias.
-- A série de **internações é estacionária**, e a de **temperatura requer transformação**.
-- A **análise de CCF** indicou que os efeitos da temperatura nas internações podem ser percebidos com **defasagem de um mês**, o que será útil na modelagem preditiva.
+```
+├── ProjetoAplicado/
+│   ├── dados_A701_M_2010-01-01_2023-12-30.csv
+│   └── A091020192_29_142_186.csv
+├── notebooks/
+│   ├── AP3.ipynb
+│   └── modelos_preditivos.ipynb
+├── imagens/
+│   └── *.png
+├── README.md
+└── requirements.txt
+```
 
 ---
 
-## 🧠 Próximos Passos
+## ⚙️ Tecnologias Utilizadas
 
-- **Modelagem com séries temporais**, utilizando ARIMA, SARIMA ou modelos híbridos (ex: Prophet + Regressão).
-- Avaliação de desempenho com métricas como RMSE, MAE, AIC/BIC.
-- Validação cruzada temporal e construção de **modelo preditivo final**.
+- Python 3.10
+- Pandas, NumPy
+- Matplotlib, Seaborn
+- Statsmodels
+- Scikit-learn
 
 ---
+
+## 📌 Objetivo da Etapa 3
+
+Nesta etapa, buscamos:
+
+- Realizar uma análise exploratória integrada das séries temporais;
+- Identificar padrões sazonais, tendências e correlações;
+- Avaliar o impacto da temperatura nas internações por doenças respiratórias;
+- Preparar os dados para modelagem preditiva.
+
+
 
