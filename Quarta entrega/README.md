@@ -79,81 +79,75 @@ A solução parte da coleta de dados históricos do INMET, segue com a limpeza e
 
 ---
 
+
+
 ## **EDA e Pré-processamento dos Dados**
 
-A base de dados foi obtida do portal do INMET e trata-se de uma série temporal com registros mensais de temperatura média em São Paulo de 1963 a 2023. Durante o pré-processamento foram realizadas:
+- Dados climáticos do INMET e de internações do DATASUS.
+- Pré-processamento em Python: tratamento de datas, padronização, remoção de ruídos e merge com alinhamento temporal mensal.
+- Gráficos e boxplots mostraram forte **sazonalidade nas internações**, com picos entre maio e agosto.
+- Teste ADF indicou:
+  - Temperatura: **não estacionária** (p > 0.05)
+  - Internações: **estacionária** (p < 0.05)
+- Correlação de Pearson: **-0.2192** (fraca e negativa)
+- CCF revelou lags significativos: **0, 1, 4–7, 11–12, 16–18, 22–23**
 
-- Padronização de datas;
-- Tratamento de valores ausentes por interpolação linear;
-- Conversão de variáveis categóricas para numéricas (onde necessário);
-- Decomposição da série temporal para análise de tendência e sazonalidade;
-- Aplicação do Teste ADF para avaliação de estacionariedade.
-
-A seguir, um exemplo do gráfico de decomposição da série temporal:
-
-![Gráfico de Decomposição](img/decomposicao_temperatura.png)
-
-Análise da autocorrelação (ACF) e autocorrelação parcial (PACF) indicou a escolha dos parâmetros iniciais para o modelo SARIMA.
+📊 **Acesse os gráficos no [Google Colab](https://colab.research.google.com/drive/1xSnP0P4HXhj4JVlNM2B4KQoY_PdbUTP-)**
 
 ---
 
 ## **Modelos**
 
-O modelo utilizado foi o **SARIMA (Seasonal AutoRegressive Integrated Moving Average)**, cuja parametrização foi definida com base nas análises de ACF, PACF e nos testes de estacionariedade. A escolha por SARIMA se justifica pela presença de padrão sazonal anual (12 meses).
-
-**Etapas:**
-
-- Ajuste dos parâmetros (p, d, q) e (P, D, Q, s);
-- Divisão da série em treino e teste (80/20);
-- Ajuste e previsão com `SARIMAX` (statsmodels);
-- Validação com MAE e RMSE.
-
-```python
-from statsmodels.tsa.statespace.sarimax import SARIMAX
-
-model = SARIMAX(series_train, order=(1,1,1), seasonal_order=(1,1,1,12))
-results = model.fit()
-forecast = results.get_forecast(steps=12)
-```
+- **Modelos avaliados:**
+  - SARIMA (modelo base)
+  - SARIMAX com temperatura como variável exógena
+- **Melhor desempenho:** SARIMAX(2,1,2)x(0,1,[1],12)
+- **Ferramentas utilizadas:**
+  - Python (`pmdarima`, `statsmodels`)
+  - Grid Search para seleção dos hiperparâmetros
 
 ---
 
 ## **Resultados**
 
-A seguir, são apresentados os resultados para o conjunto de teste (últimos 12 meses da série):
-
-| Métrica | Valor |
-|--------|-------|
-| MAE    | 0.42  |
-| RMSE   | 0.57  |
-
-Gráfico comparativo entre valores reais e previstos:
-
-![Gráfico Previsões](img/previsoes_temperatura.png)
-
-As previsões capturaram adequadamente a sazonalidade anual da temperatura média, apresentando baixa margem de erro.
+- **RMSE no conjunto de teste (2023):** 94.69
+- **Coeficiente da temperatura:** 9.2091 (p = 0.038) → **significativo**
+- **Diagnóstico de resíduos:**
+  - Sem autocorrelação (teste de Ljung-Box)
+  - Não normalidade (Jarque-Bera)
+  - Heterocedasticidade presente
 
 ---
 
 ## **Discussão e Conclusão**
 
-O projeto Temprev atendeu ao objetivo principal de prever a temperatura média mensal em São Paulo com boa acurácia. A escolha por modelos estatísticos clássicos, como o SARIMA, demonstrou ser adequada ao comportamento da série. Os principais pontos fortes do trabalho são a consistência metodológica, a qualidade dos dados históricos e a aplicabilidade do resultado em saúde pública.
+O modelo SARIMAX se mostrou promissor, capturando tendências sazonais e revelando um impacto significativo da temperatura nas internações. Contudo, limitações foram observadas:
 
-Limitações incluem a ausência de variáveis exógenas (como poluição ou umidade) e a modelagem restrita à temperatura, sem integrar diretamente os dados de internações. Como melhoria futura, propõe-se a ampliação do modelo para prever internações com base em múltiplas variáveis ambientais.
+- Não normalidade e variância instável dos resíduos  
+- Coeficientes não significativos  
+- Sinal positivo inesperado no coeficiente da temperatura, exigindo análise mais profunda das defasagens
+
+**Melhorias futuras:**
+
+- Aplicar transformações (log, Box-Cox)
+- Considerar modelos SARIMAX-GARCH para tratar heterocedasticidade
+- Incluir novas variáveis explicativas (ex: umidade, poluentes)
+- Usar validação cruzada temporal (time series cross-validation)
+- Comparar com modelos alternativos (GAM, XGBoost, LSTM, etc.)
 
 ---
 
 ## **Apresentação**
 
-- [Vídeo de Apresentação Técnica do Projeto](https://youtu.be/link_tecnico_temprev)
-- [Vídeo de Apresentação Institucional da Solução Temprev](https://youtu.be/link_institucional_temprev)
+📽️ *Link do vídeo será inserido aqui posteriormente*
 
 ---
 
 ## **Referências**
 
-- BOX, G. E. P. et al. *Time Series Analysis: Forecasting and Control*. Wiley, 2015.  
-- NASCIMENTO, L. F. C. et al. Statistical analysis aiming at predicting respiratory tract disease hospital admissions from environmental variables in the city of São Paulo. *PubMed*, 2010.  
-- ALMEIDA, B. F. de et al. Climate seasonality and lower respiratory tract diseases: a predictive model for pediatric hospitalizations. *SciELO/ResearchGate*, 2022.  
-- HYNDMAN, R. J.; ATHANASOPOULOS, G. *Forecasting: Principles and Practice*. OTexts, 2021.  
-- INMET – Instituto Nacional de Meteorologia. Dados históricos de temperatura. Disponível em: https://portal.inmet.gov.br/
+- BEZERRA, D. C. B.; LUSTOSA, A. L. (2024). *Os efeitos do clima e da poluição do ar sobre as doenças respiratórias: uma revisão sistemática*. Revista CEREUS.  
+- HYNDMAN, R. J.; ATHANASOPOULOS, G. (2021). *Forecasting: Principles and Practice*. OTexts.  
+- INMET. *Dados históricos de temperatura*. https://portal.inmet.gov.br/  
+- DATASUS. *TabNet*. http://www2.datasus.gov.br/  
+- SILVA, T. S. et al. (2023). *Climate seasonality and lower respiratory tract diseases*. Revista de Saúde Pública.  
+- SOUZA, M. L. et al. (2010). *Statistical analysis aiming at predicting respiratory tract disease hospital admissions*. Cadernos de Saúde Pública.  
