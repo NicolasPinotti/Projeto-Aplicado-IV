@@ -35,14 +35,44 @@ No contexto da saúde pública, estudos como Nascimento et al. (2010) demonstrar
 
 ## **Diagrama da Solução**
 
-```mermaid
-graph TD
-    A[Coleta de Dados - INMET] --> B[Pré-processamento]
-    B --> C[Análise Exploratória (EDA)]
-    C --> D[Modelagem - SARIMA]
-    D --> E[Validação do Modelo]
-    E --> F[Previsões - Temperatura Mensal]
-    F --> G[Aplicação em Saúde Pública - Temprev]
+flowchart TD
+    subgraph Dados
+        A[Coleta de Dados]
+        B[Pré-processamento]
+    end
+
+    subgraph Analise
+        C[Análise Exploratória - EDA]
+    end
+
+    subgraph Modelagem
+        D[Modelagem SARIMA]
+        E[Modelagem SARIMAX com variável exógena]
+    end
+
+    subgraph Validacao
+        F[Validação e Métricas]
+    end
+
+    subgraph Resultados
+        G[Previsão de Internações]
+        H[Discussão e Melhorias Finais]
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    C --> E
+    D --> F
+    E --> F
+    F --> G
+    G --> H
+
+    style Dados fill:#f9f,stroke:#333,stroke-width:2px
+    style Analise fill:#bbf,stroke:#333,stroke-width:2px
+    style Modelagem fill:#bfb,stroke:#333,stroke-width:2px
+    style Validacao fill:#ffb,stroke:#333,stroke-width:2px
+    style Resultados fill:#fbf,stroke:#333,stroke-width:2px
 ```
 
 A solução parte da coleta de dados históricos do INMET, segue com a limpeza e transformação das séries temporais, análise exploratória, construção do modelo SARIMA, validação com métricas apropriadas e por fim a aplicação do modelo preditivo para apoiar ações de saúde pública.
