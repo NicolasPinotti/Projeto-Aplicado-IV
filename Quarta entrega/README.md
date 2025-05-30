@@ -1,40 +1,40 @@
-# **Temprev: Previsão de Temperaturas para Apoio à Saúde Pública**
+# 🌡️ TEMPREV: Previsão de Temperaturas para Apoio à Saúde Pública
 
-## **Identificação do Grupo**
+## 👥 Identificação do Grupo
+
 - Emerson Moreira Baliza - 10369752  
 - Luciano Guimarães Costa - 10289655  
 - Nicolas Pinotti - 10408010  
 
 ---
 
-## **Resumo**
+## 📝 Resumo
 
-Este projeto visa desenvolver um sistema preditivo de temperatura média mensal com foco em apoiar a saúde pública na cidade de São Paulo, considerando sua relação com internações por doenças respiratórias. A motivação central é a crescente preocupação com os impactos climáticos na saúde da população urbana. A metodologia adotada envolve a modelagem de séries temporais por meio de técnicas estatísticas e de aprendizado de máquina, com destaque para o uso do modelo SARIMA. O produto gerado é uma ferramenta de previsão (Temprev) que pode ser aplicada em ações preventivas, contribuindo para a gestão hospitalar e para políticas públicas de saúde.
-
----
-
-## **Introdução**
-
-O aumento da incidência de doenças respiratórias em centros urbanos tem sido associado a variações climáticas extremas. Com base nesse contexto, o presente projeto tem como objetivo geral desenvolver uma ferramenta de previsão de temperatura média mensal, aplicável ao planejamento de ações de saúde pública. Os objetivos específicos incluem a análise e tratamento de séries temporais, o desenvolvimento de modelos preditivos com dados históricos do Instituto Nacional de Meteorologia (INMET), e a avaliação de sua aplicabilidade prática. O recorte temporal utilizado compreende o período de 1963 a 2023, e o foco geográfico é a cidade de São Paulo. A justificativa da proposta está na importância de antecipar variações térmicas que influenciam diretamente a taxa de internações, permitindo uma melhor alocação de recursos em saúde.
+Este projeto visa desenvolver um sistema preditivo de temperatura média mensal com foco em apoiar a saúde pública na cidade de São Paulo, considerando sua relação com internações por doenças respiratórias. A metodologia envolve modelagem de séries temporais com técnicas estatísticas e de machine learning, com destaque para o modelo SARIMA. O produto gerado, chamado **Temprev**, visa subsidiar ações preventivas, gestão hospitalar e políticas públicas de saúde.
 
 ---
 
-## **Referencial Teórico**
+## 🧭 Introdução
 
-Séries temporais são estruturas de dados fundamentais para modelar fenômenos que se desenvolvem ao longo do tempo. A previsão desses dados depende de sua análise estatística e da identificação de padrões sazonais, tendências e ruídos. Modelos como ARIMA (Box et al., 2015) e suas variações sazonais (SARIMA) são amplamente utilizados por sua robustez na modelagem de séries estacionárias. Técnicas complementares como decomposição de séries, análise de autocorrelação e testes de estacionariedade (ADF - Augmented Dickey-Fuller) são essenciais para o pré-processamento e escolha adequada do modelo.
-
-No contexto da saúde pública, estudos como Nascimento et al. (2010) demonstraram a relação entre variáveis climáticas e internações por doenças respiratórias, enquanto Almeida et al. (2022) propuseram modelos preditivos baseados na sazonalidade climática para prever hospitalizações pediátricas. Estes trabalhos reforçam a importância de estratégias analíticas que incorporem o comportamento climático no planejamento sanitário. O presente projeto baseia-se nesses fundamentos para propor uma solução local com potencial de replicação nacional.
-
-**Referências:**
-
-- BOX, G. E. P. et al. *Time Series Analysis: Forecasting and Control*. 5. ed. Wiley, 2015.  
-- NASCIMENTO, L. F. C. et al. Statistical analysis aiming at predicting respiratory tract disease hospital admissions from environmental variables in the city of São Paulo. *PubMed*, 2010.  
-- ALMEIDA, B. F. de et al. Climate seasonality and lower respiratory tract diseases: a predictive model for pediatric hospitalizations. *SciELO/ResearchGate*, 2022.  
+O aumento das doenças respiratórias em centros urbanos tem sido associado a variações climáticas. Este projeto busca desenvolver uma ferramenta de previsão de temperatura média mensal com dados históricos do INMET (1963–2023), focando na cidade de São Paulo, para apoiar o planejamento em saúde pública. Antecipar variações térmicas pode melhorar a alocação de recursos hospitalares.
 
 ---
 
-## **Diagrama da Solução**
+## 📚 Referencial Teórico
 
+A modelagem de séries temporais envolve identificar tendências, sazonalidade e ruídos. Modelos ARIMA/SARIMA são amplamente usados por sua robustez. Técnicas de decomposição, autocorrelação e testes de estacionariedade (ADF) são essenciais no pré-processamento. Estudos prévios mostram forte relação entre clima e internações respiratórias.
+
+**Referências principais:**
+
+- Box et al. (2015) — *Time Series Analysis: Forecasting and Control*  
+- Nascimento et al. (2010) — *Statistical analysis of respiratory admissions and environmental variables*  
+- Almeida et al. (2022) — *Climate seasonality and pediatric respiratory hospitalizations*  
+
+---
+
+## 🧩 Diagrama da Solução
+
+```mermaid
 flowchart TD
     subgraph Dados
         A[Coleta de Dados]
@@ -67,87 +67,76 @@ flowchart TD
     E --> F
     F --> G
     G --> H
-
-    style Dados fill:#f9f,stroke:#333,stroke-width:2px
-    style Analise fill:#bbf,stroke:#333,stroke-width:2px
-    style Modelagem fill:#bfb,stroke:#333,stroke-width:2px
-    style Validacao fill:#ffb,stroke:#333,stroke-width:2px
-    style Resultados fill:#fbf,stroke:#333,stroke-width:2px
 ```
 
-A solução parte da coleta de dados históricos do INMET, segue com a limpeza e transformação das séries temporais, análise exploratória, construção do modelo SARIMA, validação com métricas apropriadas e por fim a aplicação do modelo preditivo para apoiar ações de saúde pública.
+---
+
+## 🔍 EDA e Pré-processamento dos Dados
+
+- Fontes: INMET (clima) e DATASUS (internações)
+- Pré-processamento em Python: tratamento de datas, padronização, alinhamento mensal
+- Sazonalidade forte em internações (picos entre maio e agosto)
+- **Teste ADF**:
+  - Temperatura: não estacionária (p > 0.05)
+  - Internações: estacionária (p < 0.05)
+- **Correlação de Pearson**: -0.2192 (fraca e negativa)
+- **CCF**: lags significativos em 0, 1, 4–7, 11–12, 16–18, 22–23
+
+📊 Veja os gráficos no [Google Colab](https://colab.research.google.com/drive/1xSnP0P4HXhj4JVlNM2B4KQoY_PdbUTP-)
 
 ---
 
+## 🤖 Modelagem
 
-
-## **EDA e Pré-processamento dos Dados**
-
-- Dados climáticos do INMET e de internações do DATASUS.
-- Pré-processamento em Python: tratamento de datas, padronização, remoção de ruídos e merge com alinhamento temporal mensal.
-- Gráficos e boxplots mostraram forte **sazonalidade nas internações**, com picos entre maio e agosto.
-- Teste ADF indicou:
-  - Temperatura: **não estacionária** (p > 0.05)
-  - Internações: **estacionária** (p < 0.05)
-- Correlação de Pearson: **-0.2192** (fraca e negativa)
-- CCF revelou lags significativos: **0, 1, 4–7, 11–12, 16–18, 22–23**
-
-📊 **Acesse os gráficos no [Google Colab](https://colab.research.google.com/drive/1xSnP0P4HXhj4JVlNM2B4KQoY_PdbUTP-)**
-
----
-
-## **Modelos**
-
-- **Modelos avaliados:**
+- **Modelos testados**:
   - SARIMA (modelo base)
-  - SARIMAX com temperatura como variável exógena
-- **Melhor desempenho:** SARIMAX(2,1,2)x(0,1,[1],12)
-- **Ferramentas utilizadas:**
-  - Python (`pmdarima`, `statsmodels`)
-  - Grid Search para seleção dos hiperparâmetros
+  - SARIMAX (temperatura como variável exógena)
+- **Melhor desempenho**: SARIMAX(2,1,2)x(0,1,[1],12)
+- **Ferramentas**:
+  - `pmdarima`, `statsmodels`
+  - Grid Search para ajuste de hiperparâmetros
 
 ---
 
-## **Resultados**
+## 📈 Resultados
 
-- **RMSE no conjunto de teste (2023):** 94.69
-- **Coeficiente da temperatura:** 9.2091 (p = 0.038) → **significativo**
-- **Diagnóstico de resíduos:**
-  - Sem autocorrelação (teste de Ljung-Box)
+- **RMSE (2023)**: 94.69
+- **Coeficiente da temperatura**: 9.2091 (p = 0.038) → significância estatística
+- **Diagnóstico dos resíduos**:
+  - Sem autocorrelação (Ljung-Box)
   - Não normalidade (Jarque-Bera)
   - Heterocedasticidade presente
 
 ---
 
-## **Discussão e Conclusão**
+## 💬 Discussão e Conclusão
 
-O modelo SARIMAX se mostrou promissor, capturando tendências sazonais e revelando um impacto significativo da temperatura nas internações. Contudo, limitações foram observadas:
+O modelo SARIMAX capturou padrões sazonais e sugeriu relação significativa entre temperatura e internações. No entanto, há limitações:
 
-- Não normalidade e variância instável dos resíduos  
-- Coeficientes não significativos  
-- Sinal positivo inesperado no coeficiente da temperatura, exigindo análise mais profunda das defasagens
+- Resíduos não normais e heterocedásticos
+- Sinal positivo inesperado no coeficiente da temperatura
+- Necessidade de explorar defasagens e novas variáveis
 
-**Melhorias futuras:**
+**Próximos passos:**
 
-- Aplicar transformações (log, Box-Cox)
-- Considerar modelos SARIMAX-GARCH para tratar heterocedasticidade
-- Incluir novas variáveis explicativas (ex: umidade, poluentes)
-- Usar validação cruzada temporal (time series cross-validation)
-- Comparar com modelos alternativos (GAM, XGBoost, LSTM, etc.)
-
----
-
-## **Apresentação**
-
-📽️ *Link do vídeo será inserido aqui posteriormente*
+- Transformações (log, Box-Cox)
+- Modelos SARIMAX-GARCH
+- Inclusão de novas variáveis (umidade, poluentes)
+- Validação cruzada temporal
+- Comparação com outros modelos (GAM, XGBoost, LSTM)
 
 ---
 
-## **Referências**
+## 🎥 Apresentação
 
-- BEZERRA, D. C. B.; LUSTOSA, A. L. (2024). *Os efeitos do clima e da poluição do ar sobre as doenças respiratórias: uma revisão sistemática*. Revista CEREUS.  
+📽️ https://youtu.be/aiEZHtMJwdg
+---
+
+## 📚 Referências Complementares
+
+- BEZERRA, D. C. B.; LUSTOSA, A. L. (2024). *Os efeitos do clima e da poluição do ar sobre as doenças respiratórias*. Revista CEREUS.  
 - HYNDMAN, R. J.; ATHANASOPOULOS, G. (2021). *Forecasting: Principles and Practice*. OTexts.  
-- INMET. *Dados históricos de temperatura*. https://portal.inmet.gov.br/  
-- DATASUS. *TabNet*. http://www2.datasus.gov.br/  
+- INMET. *Dados históricos de temperatura*: https://portal.inmet.gov.br/  
+- DATASUS. *TabNet*: http://www2.datasus.gov.br/  
 - SILVA, T. S. et al. (2023). *Climate seasonality and lower respiratory tract diseases*. Revista de Saúde Pública.  
-- SOUZA, M. L. et al. (2010). *Statistical analysis aiming at predicting respiratory tract disease hospital admissions*. Cadernos de Saúde Pública.  
+- SOUZA, M. L. et al. (2010). *Statistical analysis aiming at predicting respiratory tract disease hospital admissions*. Cadernos de Saúde Pública.
