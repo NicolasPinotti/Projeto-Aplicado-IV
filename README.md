@@ -1,110 +1,130 @@
-📌 Previsão de Temperatura Mensal com Séries Temporais  
-**SISTEMA DE PREVISÃO DE TEMPERATURA LOCAL TEMPREV**  
-EMERSON MOREIRA BALIZA - 10369752  
-LUCIANO GUIMARAES COSTA - 10289655  
-NICOLAS PINOTTI - 10408010  
+# 🌡️ TEMPREV: Sistema de Previsão de Temperatura Mensal com Séries Temporais
+
+**Autores:**  
+Emerson Moreira Baliza - 10369752  
+Luciano Guimarães Costa - 10289655  
+Nicolas Pinotti - 10408010  
 
 ---
 
-📌 Previsão de Temperatura para Saúde Pública  
-A previsão de variáveis climáticas, como a temperatura, é essencial para antecipar impactos adversos na saúde pública, como o aumento de doenças respiratórias e a proliferação de doenças transmitidas por vetores. Este estudo desenvolve um modelo preditivo para estimar temperaturas mensais usando séries temporais, auxiliando no planejamento de ações preventivas.
+## 📌 Objetivo
+
+A previsão de variáveis climáticas, como a temperatura, é essencial para antecipar impactos adversos na saúde pública, como o aumento de doenças respiratórias e a proliferação de doenças transmitidas por vetores.  
+Este estudo desenvolve um modelo preditivo para estimar temperaturas mensais usando séries temporais, auxiliando no planejamento de ações preventivas em saúde pública.
 
 ---
 
-📖 1. Introdução  
-Avanços tecnológicos e a crescente disponibilidade de dados ambientais transformaram a forma como compreendemos a relação entre as condições climáticas e a saúde pública. Estudos mostram que variações de temperatura podem estar associadas a um aumento de internações por doenças respiratórias e cardiovasculares, além de influenciar a incidência de doenças infecciosas como a dengue (WHO, 2023; MINISTÉRIO DA SAÚDE, 2022).
+## 📖 1. Introdução
 
-Neste contexto, este estudo propõe o desenvolvimento de um modelo preditivo para estimar temperaturas mensais utilizando técnicas de séries temporais. Além dos dados climáticos do INMET, será incorporada uma base de internações hospitalares relacionadas a doenças sensíveis à variação da temperatura.
+Avanços tecnológicos e a crescente disponibilidade de dados ambientais transformaram a forma como compreendemos a relação entre clima e saúde.  
+Estudos indicam que variações de temperatura podem estar associadas a um aumento de internações por doenças respiratórias, cardiovasculares e infecciosas (como a dengue).
 
-O objetivo é integrar modelos matemáticos e estatísticos que possibilitem a antecipação de cenários climáticos, auxiliando na implementação de estratégias de saúde pública mais eficazes.
+Neste contexto, este projeto propõe um modelo preditivo para estimar temperaturas mensais com base em dados do INMET, incorporando também registros de internações hospitalares (DATASUS) por doenças sensíveis à temperatura.
 
----
-
-📚 2. Referencial Teórico  
-A previsão de variáveis climáticas é amplamente estudada, com diferentes abordagens metodológicas:
-
-- **Modelos estatísticos**: ARIMA e SARIMA são eficazes para capturar padrões sazonais e tendências em séries temporais (HYNDMAN; ATHANASOPOULOS, 2018).  
-- **Modelos baseados em machine learning**: Prophet, do Facebook, apresenta bons resultados na previsão de séries temporais irregulares (TAYLOR; LETHAM, 2018).  
-- **Modelos de deep learning**: Redes neurais recorrentes (RNN) e modelos LSTM são utilizados para fenômenos não lineares e alta variabilidade (SCHMIDHUBER, 2015).  
-
-No contexto da saúde pública, estudos indicam que modelos preditivos podem prever a incidência de doenças relacionadas ao clima, auxiliando políticas preventivas (PATEL et al., 2021).
+Nosso objetivo é desenvolver uma ferramenta analítica que integre dados climáticos e de saúde, contribuindo com ações preventivas e políticas públicas mais eficazes.
 
 ---
 
-🛠 3. Metodologia  
+## 📚 2. Referencial Teórico
 
-**📌 Coleta de Dados**  
-- Base de temperatura do INMET.  
-- Base de internações hospitalares relacionadas a doenças respiratórias (DATASUS).  
+Diversas abordagens têm sido utilizadas na previsão climática:
 
-**📌 Pré-processamento dos Dados**  
-- Tratamento de valores ausentes, transformação de datas e agregação mensal.  
-- Junção das duas bases pelo campo `ano-mês`.  
+- **Modelos Estatísticos**  
+  ARIMA e SARIMA: eficazes para capturar padrões sazonais e tendências.  
+  Referência: *Hyndman & Athanasopoulos, 2018*.
 
-**📌 Modelagem e Treinamento**  
-- Modelos estatísticos: ARIMA, SARIMA.  
-- Modelos de machine learning: Prophet, LSTM (futuro).  
-- Avaliação do desempenho por métricas (RMSE, MAE).  
+- **Machine Learning**  
+  Prophet: desenvolvido pelo Facebook, ideal para séries temporais irregulares.  
+  Referência: *Taylor & Letham, 2018*.
 
-**📌 Validação e Análise dos Resultados**  
-- Análise exploratória (EDA).  
-- Correlação entre temperatura e internações.  
-- Teste de estacionariedade.  
-- Análise de correlação cruzada (CCF).  
+- **Deep Learning**  
+  Redes LSTM: úteis para fenômenos não lineares com alta variabilidade.  
+  Referência: *Schmidhuber, 2015*.
+
+No campo da saúde pública, estudos mostram que modelos preditivos baseados em dados climáticos podem antecipar surtos de doenças respiratórias e vetoriais (Patel et al., 2021).
 
 ---
 
-📅 4. Cronograma  
+## 🛠️ 3. Metodologia
 
-| Etapa     | Descrição                              | Data de Entrega |
-|-----------|----------------------------------------|-----------------|
-| Etapa 1   | Definição do projeto e equipe          | 🗓 28/02        |
-| Etapa 2   | Referencial teórico e cronograma       | 🗓 28/03        |
-| Etapa 3   | Implementação parcial dos modelos      | 🗓 25/04        |
-| Etapa 4   | Implementação final e entrega          | 🗓 30/05        |
+### 📌 Coleta de Dados
+- Dados de temperatura mensal: INMET.
+- Dados de internações hospitalares por doenças respiratórias: DATASUS.
 
----
+### 📌 Pré-processamento
+- Tratamento de valores ausentes.
+- Agregação mensal dos dados.
+- Junção das bases por **ano-mês**.
 
-📊 5. Resultados da Etapa 3  
+### 📌 Modelagem e Treinamento
+- Modelos estatísticos: ARIMA, SARIMA.
+- Modelos de machine learning: Prophet.
+- Futuro: LSTM (Deep Learning).
+- Avaliação por métricas: **RMSE**, **MAE**.
 
-Nesta etapa, iniciamos a fase de **implementação parcial dos modelos** e **análise exploratória dos dados**, com destaque para os seguintes pontos:
-
-✅ **Análise Exploratória (EDA):**  
-- Gráficos de séries temporais mensais mostraram sazonalidade em temperatura e variações em internações.  
-- Houve uma tendência decrescente de temperatura em alguns períodos e padrões sazonais claros.
-
-✅ **Correlação de Pearson:**  
-- Correlação linear de -0.43 entre temperatura e internações hospitalares.  
-- Sugere relação inversa: temperaturas mais baixas tendem a aumentar internações por doenças respiratórias.
-
-✅ **Teste de Estacionariedade (ADF):**  
-- Temperatura: **não estacionária** (p=0.1284).  
-- Internações: **estacionária** (p<0.01).  
-
-✅ **Análise de Correlação Cruzada (CCF):**  
-- Correlação cruzada avaliada até 24 meses de defasagem.  
-- Correlação significativa observada com defasagem de 3 a 6 meses, o que pode indicar efeitos retardados da temperatura sobre as internações.  
-- Gráfico CCF disponível no notebook.
-
-> 🔍 *Interpretação:* A queda da temperatura pode preceder o aumento nas internações, com um atraso de alguns meses — fundamental para a construção do modelo preditivo multivariado.
-
-🔜 Próximos passos envolvem:  
-- Modelagem com ARIMA/SARIMA para temperatura.  
-- Exploração de modelos exógenos (SARIMAX) e Prophet com variável exógena (internações).  
-- Avaliação de modelos LSTM na Etapa 4.
+### 📌 Validação
+- Análise Exploratória (EDA).
+- Correlação entre temperatura e internações.
+- Teste de Estacionariedade (ADF).
+- Correlação Cruzada (CCF).
 
 ---
 
-📑 6. Referências Bibliográficas  
+## 📅 4. Cronograma
 
-- HYNDMAN, R. J.; ATHANASOPOULOS, G. *Forecasting: Principles and Practice.* OTexts, 2018.  
-- MINISTÉRIO DA SAÚDE. *Impactos das mudanças climáticas na saúde pública.* 2022.  
-- PATEL, A. et al. *Machine learning approaches for forecasting dengue outbreaks based on climate data.* IJERPH, 2021.  
-- SCHMIDHUBER, J. *Deep learning in neural networks: An overview.* Neural Networks, 2015.  
-- TAYLOR, S. J.; LETHAM, B. *Forecasting at scale.* The American Statistician, 2018.  
-- WHO – World Health Organization. *Climate change and health.* 2023.
+| Etapa     | Descrição                                 | Entrega   |
+|-----------|-------------------------------------------|-----------|
+| Etapa 1   | Definição do projeto e equipe             | 28/02     |
+| Etapa 2   | Referencial teórico e cronograma          | 28/03     |
+| Etapa 3   | Implementação parcial dos modelos         | 25/04     |
+| Etapa 4   | Implementação final e entrega             | 30/05     |
+
+---
+
+## 📊 5. Resultados da Etapa 3
+
+### ✅ Análise Exploratória (EDA)
+- Sazonalidade clara nas séries de temperatura.
+- Variações mensais nas internações.
+
+### ✅ Correlação de Pearson
+- Correlação linear de **-0.43** entre temperatura e internações.
+- Relação inversa: temperaturas mais baixas → mais internações.
+
+### ✅ Teste de Estacionariedade (ADF)
+- **Temperatura**: não estacionária (p = 0.1284).
+- **Internações**: estacionária (p < 0.01).
+
+### ✅ Correlação Cruzada (CCF)
+- Correlação significativa entre temperatura e internações com **defasagem de 3 a 6 meses**.
+- Sugere efeito retardado do frio sobre o aumento de internações.
+
+> 🔍 **Interpretação:**  
+> Quedas de temperatura antecedem picos de internações respiratórias, com um atraso de até 6 meses — dado essencial para modelos preditivos multivariados (como SARIMAX).
+
+---
+
+## 🔮 6. Próximos Passos
+
+- Modelagem com **ARIMA/SARIMA** para séries univariadas.
+- Avaliação de **SARIMAX** e **Prophet com variável exógena (internações)**.
+- Implementação futura com **LSTM**.
+
+---
+
+## 📑 7. Referências Bibliográficas
+
+- HYNDMAN, R. J.; ATHANASOPOULOS, G. *Forecasting: Principles and Practice*. OTexts, 2018.  
+- MINISTÉRIO DA SAÚDE. *Impactos das mudanças climáticas na saúde pública*, 2022.  
+- PATEL, A. et al. *Machine learning approaches for forecasting dengue outbreaks based on climate data*. IJERPH, 2021.  
+- SCHMIDHUBER, J. *Deep learning in neural networks: An overview*. Neural Networks, 2015.  
+- TAYLOR, S. J.; LETHAM, B. *Forecasting at scale*. The American Statistician, 2018.  
+- WHO. *Climate change and health*. World Health Organization, 2023.
+
+---
 
 
 
+## 🎥 Apresentações
 
-
+- 🎬 [Apresentação do Projeto - YouTube](https://youtu.be/aiEZHtMJwdg)  
